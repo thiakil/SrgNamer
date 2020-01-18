@@ -1,0 +1,36 @@
+<idea-plugin>
+    <id>com.thiakil.intellij.SrgNamer</id>
+    <name>SRG Naming Helper</name>
+    <vendor email="xander@thiakil.com" url="http://github.com/thiakil">Thiakil</vendor>
+
+    <description><![CDATA[
+        <p>Assign names to unnamed MCP names easily from within IDEA. Uses code folding to show custom names where available.</p>
+        <p>Export names to CSV to help use them as custom mappings in ForgeGradle</p>
+        <p>Likely to eventually be updated to use the future mapping API.</p>
+    ]]></description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <applicationService serviceImplementation="com.thiakil.intellij.names.CustomNamesList"/>
+        <lang.foldingBuilder language="JAVA" implementationClass="com.thiakil.intellij.names.McpFoldingBuilder" />
+    </extensions>
+
+    <actions>
+        <group id="mc_names_tools" text="MCP Names" popup="true">
+            <action id="export_custom_mappings" class="com.thiakil.intellij.names.actions.ExportCustomMappings"
+                    text="Export Custom Mappings"/>
+            <action id="clear_custom_names" class="com.thiakil.intellij.names.actions.ClearCustomNames"
+                    text="Clear Custom Names Lists"/>
+            <action id="import_mcp_names" class="com.thiakil.intellij.names.actions.ImportCsvNames" text="Import CSV"/>
+            <add-to-group group-id="ToolsMenu" anchor="last" />
+        </group>
+        <action id="set_mcp_name" class="com.thiakil.intellij.names.actions.SetMcpName" text="Set Name">
+            <add-to-group group-id="EditorPopupMenu" anchor="last"/>
+            <keyboard-shortcut first-keystroke="alt F6" keymap="$default" />
+        </action>
+    </actions>
+</idea-plugin>
