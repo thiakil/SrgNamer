@@ -1,6 +1,7 @@
 <idea-plugin>
     <id>com.thiakil.intellij.SrgNamer</id>
     <name>SRG Naming Helper</name>
+    <idea-version since-build="193.0" />
     <vendor email="xander@thiakil.com" url="http://github.com/thiakil">Thiakil</vendor>
 
     <description><![CDATA[
@@ -26,6 +27,7 @@
             <action id="clear_custom_names" class="com.thiakil.intellij.names.actions.ClearCustomNames"
                     text="Clear Custom Names Lists"/>
             <action id="import_mcp_names" class="com.thiakil.intellij.names.actions.ImportCsvNames" text="Import CSV"/>
+            <action id="mcp_ImportMcpBotNames" class="com.thiakil.intellij.names.actions.ImportMcpBotNames" text="Import McpBot Names"/>
             <add-to-group group-id="ToolsMenu" anchor="last" />
         </group>
         <action id="set_mcp_name" class="com.thiakil.intellij.names.actions.SetMcpName" text="Set Name">

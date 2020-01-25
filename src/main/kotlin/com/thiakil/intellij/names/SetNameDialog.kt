@@ -1,5 +1,7 @@
 package com.thiakil.intellij.names
 
+import java.awt.Toolkit
+import java.awt.datatransfer.StringSelection
 import javax.swing.JComponent
 
 /**
@@ -27,6 +29,14 @@ class SetNameDialog(private val memberType: MemberType, private val srgName: Str
             MemberType.METHOD -> CustomNamesList.instance.setMethod(srgName, nameField.text, commentField.text)
             MemberType.FIELD -> CustomNamesList.instance.setField(srgName, nameField.text, commentField.text)
             MemberType.PARAM -> CustomNamesList.instance.setParam(srgName, nameField.text, commentField.text)
+        }
+        if (copyBotCommand.isSelected) {
+            val textToCopy = when(memberType) {
+                MemberType.METHOD -> "sm "
+                MemberType.FIELD -> "sf "
+                MemberType.PARAM -> "sp "
+            } + srgName + " " + nameField.text + if (commentField.text.isNotBlank()) " "+commentField.text else ""
+            Toolkit.getDefaultToolkit().systemClipboard.setContents(StringSelection(textToCopy), null)
         }
         super.doOKAction()
     }

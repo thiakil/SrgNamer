@@ -21,21 +21,7 @@ class ImportCsvNames : AnAction() {
                 val customNamesList = CustomNamesList.instance
                 fileList.forEach { file ->
                     file.inputStream.bufferedReader().useLines { lines ->
-                        lines.forEachIndexed { index, line ->
-                            if (index > 0){
-                                val parts = line.split(Regex(","), 4)
-                                val searge = parts[0]
-                                val name = parts[1]
-                                val desc = if (parts.size == 4) parts[3] else ""
-                                if (searge.isNotEmpty()){
-                                    when (searge.substringBefore("_")){
-                                        "func" -> customNamesList.setMethod(searge, name, desc)
-                                        "field" -> customNamesList.setField(searge, name, desc)
-                                        "p" -> customNamesList.setParam(searge, name, desc)
-                                    }
-                                }
-                            }
-                        }
+                        ActionUtil.importCsvLines(lines, customNamesList)
                     }
                 }
             }

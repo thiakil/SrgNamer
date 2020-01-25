@@ -31,7 +31,6 @@ class SetMcpName : AnAction() {
 
     override fun update(e: AnActionEvent) {
         super.update(e)
-        println(e.psiElement)
         e.presentation.isVisible = when (val el = e.psiElement) {
             is PsiMethod -> when {
                 el.name.startsWith("func_") -> true

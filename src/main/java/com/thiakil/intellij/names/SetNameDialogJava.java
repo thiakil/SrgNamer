@@ -12,6 +12,7 @@ public abstract class SetNameDialogJava extends DialogWrapper {
     protected JPanel rootPanel;
     protected JTextField nameField;
     protected JTextArea commentField;
+    protected JCheckBox copyBotCommand;
 
     protected SetNameDialogJava() {
         super(true);

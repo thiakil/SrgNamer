@@ -22,7 +22,7 @@ dependencies {
 intellij {
     version '2019.3'
     plugins = ['java']
-    sameSinceUntilBuild = true
+    updateSinceUntilBuild = false
 }
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
