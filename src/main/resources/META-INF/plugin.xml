@@ -7,6 +7,7 @@
     <description><![CDATA[
         <p>Assign names to unnamed MCP names easily from within IDEA. Uses code folding to show custom names where available.</p>
         <p>Export names to CSV to help use them as custom mappings in ForgeGradle</p>
+        <p>Copy MCPBot commands to clipboard</p>
         <p>Likely to eventually be updated to use the future mapping API.</p>
     ]]></description>
 
@@ -27,7 +28,7 @@
             <action id="clear_custom_names" class="com.thiakil.intellij.names.actions.ClearCustomNames"
                     text="Clear Custom Names Lists"/>
             <action id="import_mcp_names" class="com.thiakil.intellij.names.actions.ImportCsvNames" text="Import CSV"/>
-            <action id="mcp_ImportMcpBotNames" class="com.thiakil.intellij.names.actions.ImportMcpBotNames" text="Import McpBot Names"/>
+            <action id="mcp_ImportMcpBotNames" class="com.thiakil.intellij.names.actions.ImportMcpBotNames" text="Import MCPBot Names"/>
             <add-to-group group-id="ToolsMenu" anchor="last" />
         </group>
         <action id="set_mcp_name" class="com.thiakil.intellij.names.actions.SetMcpName" text="Set Name">
