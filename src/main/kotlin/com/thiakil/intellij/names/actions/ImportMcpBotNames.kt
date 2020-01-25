@@ -29,7 +29,7 @@ class DownloadCsvsTask(project: Project?): Task.Backgroundable(project, "Downloa
         indicator.text = "Importing names"
         indicator.isIndeterminate = true
         val customNamesList = CustomNamesList.instance
-        customNamesList.clearLists()
+        //customNamesList.clearLists()
         ActionUtil.importCsvLines(methods.asSequence(), customNamesList)
         ActionUtil.importCsvLines(fields.asSequence(), customNamesList)
         ActionUtil.importCsvLines(params.asSequence(), customNamesList)
